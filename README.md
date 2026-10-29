@@ -22,6 +22,32 @@ Sessions are a default way to decompose work at AI scale, not the only way.
 Teams can substitute their own planning and delivery practices while keeping
 evidence-backed decisions, bounded work, human review, and verified outcomes.
 
+## Skills foundation and curation
+
+[GitHub Awesome Copilot](https://github.com/github/awesome-copilot) is our
+foundation for discovering skills and keeping our selection current. Its
+broad community catalog offers many choices; FE curates a focused set for
+the methodology and training rather than asking every team to evaluate the
+entire catalog.
+
+[FE skills](https://github.com/frontier-engineering/skills) is that curated
+set, with reusable Markdown skills for discovery, requirements, sessions,
+and delivery. Curation includes selecting, reviewing, and adapting skills,
+with provenance and methodology credits preserved.
+
+We use the same GitHub CLI `gh skill` mechanism as Awesome Copilot for
+installation and updates, not an FE-specific installer or framework runtime.
+This is our "no code" distribution approach: the deliverables are skill
+files, not custom tooling that teams must build or operate. Teams can inspect,
+adapt, and version those files in their own repositories.
+
+Keeping skills current means reviewing upstream changes and publishing
+deliberate, versioned updates, not automatically changing skills during a
+project or cohort. See the FE skills
+[installation and update policy](https://github.com/frontier-engineering/skills/blob/main/docs/design.md).
+Microsoft HVE Core remains a methodology reference, not an installation
+dependency.
+
 ## Training and case studies
 
 * [Draft train-the-trainer facilitator plan](docs/ttt-facilitator-plan.md):
@@ -36,7 +62,10 @@ evidence-backed decisions, bounded work, human review, and verified outcomes.
 ## Related projects
 
 * [FE skills](https://github.com/frontier-engineering/skills): installable,
-  reusable skills and their distribution instructions.
+  curated skills and the installation and update policy described above.
+* [GitHub Awesome Copilot](https://github.com/github/awesome-copilot):
+  the broader community catalog underpinning our skill discovery and
+  curation, alongside custom agents, instructions, and other customizations.
 * [HVE Core](https://github.com/microsoft/hve-core) and
   [context-first](https://github.com/context-first/core): the methodology
   sources described above.

@@ -130,7 +130,7 @@ Before delivery:
 * Confirm that repositories contain no credentials, client information, or
   assessor-only material before they become templates.
 
-Use the maintained [skills distribution instructions](https://github.com/bartr/skills/blob/main/docs/design.md#installing-with-gh-skill).
+Use the maintained [skills distribution instructions](https://github.com/frontier-engineering/skills/blob/main/docs/design.md#installing-with-gh-skill).
 Record the installed release and any local modifications. Verify that the
 assistant can discover the skills; files being present is not sufficient.
 
@@ -274,7 +274,7 @@ Proceed to planning only when:
 * A facilitator can trace one requirement to its source and describe how its
   acceptance criterion will be tested.
 
-The [PRD skill](https://github.com/bartr/skills/blob/main/skills/prd/SKILL.md)
+The [PRD skill](https://github.com/frontier-engineering/skills/blob/main/skills/prd/SKILL.md)
 defines the detailed readiness and ledger contract; do not invent a
 competing workshop format.
 
@@ -486,7 +486,7 @@ agreed scope; they require a separate decision.
   and [LLM coach prompts](knowledge/llm-coach-prompts.md): examples to adapt,
   not mandatory client tooling.
 
-The underlying [skills](https://github.com/bartr/skills) provide the reusable
+The underlying [skills](https://github.com/frontier-engineering/skills) provide the reusable
 method. This plan adds facilitation, handoff gates, and a pilot structure; it
 does not replace their templates or claim that a finished curriculum,
 reference implementation, or certification program already exists.
