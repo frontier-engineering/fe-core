@@ -11,7 +11,8 @@ Do not distribute this file with the assessments.
 
 Score one point per multiple-choice answer and up to two points per short
 answer: one for the correct principle and one for the reasoning or evidence.
-The maximum is 18; 80% is 14.4, so 15 points passes.
+There are six multiple-choice and ten short-answer questions. The maximum
+is 26; 80% is 20.8, so 21 points passes.
 
 | # | Answer | Rationale | Evidence |
 |---|---|---|---|
@@ -48,10 +49,45 @@ host and cache state, results, exact errors, telemetry, and diagnosis, in
 `.github/tracking/`. The failed run is often the only evidence of why a limit
 or fix exists.
 
+**13.** The manifest supplies task metadata and execution declarations;
+`instruction.md` is the agent's problem; `tests/test.sh` performs grading
+and produces reward evidence. A configured `environment.docker_image`
+takes precedence in Wharf's agent path, bypassing the agent Dockerfile.
+Award one point for distinguishing the three files and one for the image
+precedence. See [the task contract](harbor-trial.md#1-read-the-task-contract).
+
+**14.** The task image supplies the environment; the exact-version/platform
+CLI payload avoids repeating npm installation; the composed cache combines
+their identities. Each attempt still gets a unique trial child image and
+fresh container/workspace. Award one point for the cache/isolation distinction
+and one for recognizing that cold population, cache hits, and host conditions
+have different costs: roughly 20 seconds is an operator estimate, not a
+universal speedup. The retained direct-install measurement was 26.51 seconds.
+See [image preparation](harbor-trial.md#2-prepare-images-then-create-an-isolated-attempt).
+
+**15.** Wharf captures the Git diff as `agent/patch.diff` and copies it to
+`artifacts/model.patch`, removes the agent container, and transfers the
+artifact to a fresh verifier. The Dockerfile bundles evaluator files; the
+smoke task's grader applies the model patch and evaluator test patch inside
+the verifier when `/tests/test.sh` runs. Reward, test reports, command logs,
+and trial-result evidence establish whether F2P and P2P checks passed; the
+agent's exit code establishes no such result. Award one point for the
+retained-patch/fresh-verifier handoff and one for the grader/test/evidence
+distinction. See [agent capture](harbor-trial.md#3-run-the-agent-and-retain-the-patch)
+and [separate grading](harbor-trial.md#4-grade-the-patch-in-a-separate-environment).
+
+**16.** `nop` checks the unfixed base, which should not earn solved-task
+reward; `oracle` checks that a reference solution can pass the evaluator.
+They validate the task, not LLM ability. Neither is a selectable baseline
+execution mode in the pinned Wharf runner; a normal clean no-patch agent
+exit is terminal `AgentUnfinished`, not a successful no-op baseline.
+Award one point for the baseline purposes and one for the Wharf distinction.
+See [baseline controls](harbor-trial.md#6-understand-the-no-op-and-oracle-baselines).
+
 ## Assessment 2: Scenarios
 
-Score each scenario from 0 to 4 using the rubric, for a maximum of 12. A
-passing result is 9 or higher, with no scenario scored 0.
+Score each scenario from 0 to 4 using the rubric, for a maximum of 16. A
+passing result is 12 or higher, with no scenario scored 0.
 
 | Score | Meaning |
 |---|---|
@@ -93,3 +129,32 @@ passing result is 9 or higher, with no scenario scored 0.
   timeout at the agent boundary, including precedence over task values.
 * Execute the packaged artifact, and check filesystem and Docker residue after
   failure paths. An independent code review also counts.
+
+### Scenario 4: expected elements
+
+* Use the configured `docker_image`, not an additional environment Dockerfile
+  build. Reuse valid task/CLI/composed image caches, but create a unique
+  trial child image and fresh container/workspace. Capture the patch, remove
+  the agent container, and transfer the patch to a fresh verifier. The
+  verifier Dockerfile bundles grading files; its grader applies the model
+  and evaluator patches at runtime. Do not grade a reused live agent workspace.
+* `P=2` permits at most two preparation operations total, not two of each
+  kind. Both warm agent preparation and verifier preparation use the shared
+  gate. Agent preparation releases it before agent execution; verifier
+  image/runner-workspace preparation releases it before verifier execution.
+  The Docker grader's model/test patch replay is inside execution, outside
+  that permit. The cache reduces work, not the isolation or gate contract.
+* Retry only the verifier with the exact retained patch and unchanged agent
+  cost/identity, creating a fresh verifier environment. Preserve the failed
+  verifier evidence and compare retained patch content or hashes and trial/
+  retry identifiers. Image/cache and grading-file identities make the replay
+  auditable; a new agent attempt would be a different answer.
+* Explain `nop` as the unfixed-base control and `oracle` as the known-solution
+  control. Do not claim Wharf runs either as a selectable baseline mode.
+  A normal no-patch exit is terminal unfinished, not a passing baseline.
+
+**Evidence:** [Harbor trial primer](harbor-trial.md), especially its pinned
+runner, image preparation, agent capture, and smoke-grader sources.
+For full credit, address all four areas with specific evidence; a response
+that endorses sharing a modified agent workspace or rerunning the agent for
+the verifier timeout cannot receive full credit.

@@ -44,6 +44,20 @@ source excerpts I provide.
 Use one after the core prompt. Paste the lab scenario, but initially omit its
 debrief.
 
+### Harbor trial lifecycle
+
+```text
+Coach me through explaining one Harbor-format trial in Wharf. Ask me to
+draw the path from task.toml to reward before giving your version. Probe
+which file supplies the instructions, which image source is selected, what
+is cached, what must be fresh, and how the patch reaches separate grading.
+Ask me to mark where the shared P gate is acquired and released, including
+where the Docker grader applies patches. Then ask what nop and oracle
+validate and how I would verify runner support. Do not invent supported
+flags, cache speedups, or grading results. Use the supplied lifecycle primer
+and pinned sources only after I commit to an explanation.
+```
+
 ### Cold-run preparation pressure
 
 ```text

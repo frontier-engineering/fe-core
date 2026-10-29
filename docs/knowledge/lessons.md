@@ -8,6 +8,12 @@ description: What a practitioner should know after building and operating Wharf,
 Each lesson states the principle, the evidence that produced it, and the
 practice that follows. Lessons are grouped by theme rather than by release.
 
+Start with [How a Harbor trial works in Wharf](harbor-trial.md). The unit
+being scaled is an attempt that prepares an environment, runs an agent,
+retains its patch, and grades that patch in a separate environment. Image
+reuse reduces preparation work; it does not remove trial isolation or make
+the agent's successful exit a passing grade.
+
 ## 1. Scale up before you scale out
 
 **Lesson:** Execution concurrency and preparation concurrency are different
@@ -26,6 +32,9 @@ and the [shared preparation gate research](https://github.com/bartr/wharf/blob/f
 
 **Practice:** Size `P` for the cold case and use that value for every run. A
 higher warm-run `P` saves about a minute and risks hours of lost work.
+Apply it to the [actual phase boundaries](harbor-trial.md#5-locate-the-preparation-gate):
+agent and verifier preparation share one gate, but agent execution and
+grading do not hold its permits.
 
 ## 2. A single well-used host is an enterprise feature
 

@@ -5,7 +5,7 @@ description: Scenario-based assessment of engineering judgment using Wharf's evi
 
 ## Instructions
 
-Answer all three scenarios. Each answer should state a decision, the reasoning
+Answer all four scenarios. Each answer should state a decision, the reasoning
 behind it, and the evidence you would cite or collect. There is no single
 correct wording. Assessors score judgment and evidence use with the rubric in
 the answer key.
@@ -42,3 +42,28 @@ dry-run plan.
 2. What test would show the setting reaches execution?
 3. Name two other checks, beyond the test suite, that the release close
    should include.
+
+## Scenario 4: "Everything is cached, so skip preparation"
+
+In this hypothetical run, a DeepSWE-style task declares
+`environment.docker_image` and also contains `environment/Dockerfile`.
+The task image, exact-version Copilot payload, and composed agent image
+are present locally. The job uses `N=8 P=2`.
+
+A teammate proposes reusing the last agent container, skipping the
+preparation gate, and grading its live workspace because "all the images
+are cached." They also propose allowing two agent preparations and two
+verifier preparations simultaneously. Later, the agent completes with a
+patch, but the separate verifier times out.
+
+1. Draw the correct path from task configuration to reward. Distinguish
+   image selection, cached objects, fresh trial/container state, and the
+   patch handoff. Where do the evaluator's tests enter?
+2. How many preparation operations may hold permits at once? Name the
+   boundaries at which the agent and verifier release `P`, including whether
+   the task grader's patch replay holds it.
+3. What should the timeout retry preserve, and what should it recreate?
+   Which artifacts would demonstrate that the same agent answer was graded?
+4. Before claiming the task is a sound evaluator, what would `nop` and
+   `oracle` tell you? Explain whether those modes are available in the
+   documented Wharf runner, and what a normal no-patch result means.

@@ -5,7 +5,7 @@ description: Knowledge check on the lessons recorded in Wharf's evidence
 
 ## Instructions
 
-Answer all twelve questions. Short answers should be two to four sentences.
+Answer all sixteen questions. Short answers should be two to four sentences.
 Open-book use of the repository is allowed. The passing score is 80%.
 
 ## Multiple choice
@@ -69,3 +69,21 @@ What is still required?
 **11.** Why can't the enterprise PASS@1 be compared directly with the DeepSWE PASS@1?
 
 **12.** What should be recorded before deleting a failed job directory, and why?
+
+**13.** You find `task.toml`, `instruction.md`, and `tests/test.sh` in a task.
+Explain their different jobs. If the task also contains both
+`environment.docker_image` and `environment/Dockerfile`, which agent
+environment source does Wharf use?
+
+**14.** Explain the difference between reusing a task image, a versioned CLI
+payload, and a composed agent image. What must still be created for each
+attempt, and why is "the cache always saves 20 seconds" an unsupported claim?
+
+**15.** Trace the agent's output into a separate verifier: name the retained
+patch artifacts, explain where the model patch and evaluator test patch
+are applied, and identify the resulting grading evidence. Why is the
+agent's zero exit code not enough?
+
+**16.** What do Harbor's `nop` and `oracle` baselines establish about a task?
+Does a clean no-patch exit in Wharf demonstrate that its `nop` baseline
+passed? Explain the distinction.

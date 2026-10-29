@@ -10,8 +10,10 @@ experience behind it can still be captured, studied, and assessed.
 
 This pack is maintained in fe-core. It was moved from Wharf's
 [`docs/knowledge/` at commit `fd9c194`](https://github.com/bartr/wharf/tree/fd9c194c11f7f4d5589cd26c7fbd0645d6d20fd1/docs/knowledge).
-Links to Wharf evidence below are pinned to that same commit, rather than a
-moving branch. The original retrospective and tracking artifacts remain in
+Wharf evidence links in this pack are pinned to that same commit, rather
+than a moving branch. The Harbor lifecycle primer also references current
+upstream documentation, labeled separately from Wharf's supported behavior.
+The original retrospective and tracking artifacts remain in
 Wharf; this repository maintains the learning material derived from them.
 
 Every lesson here is derived from retained repository evidence: the
@@ -26,8 +28,9 @@ retained telemetry, the pack says so.
 
 | File | Audience | Use |
 |---|---|---|
+| [harbor-trial.md](harbor-trial.md) | Everyone | Start here: the task, image/cache preparation, agent patch, separate grading, `N`/`P`, and baseline controls |
 | [lessons.md](lessons.md) | Everyone | What a practitioner should know after building and operating Wharf |
-| [study-guide.md](study-guide.md) | Learners | Seven modules with reading lists and self-check questions |
+| [study-guide.md](study-guide.md) | Learners | Eight modules, beginning with the Harbor trial lifecycle, with reading lists and self-check questions |
 | [assessment-1-foundations.md](assessment-1-foundations.md) | Learners | Knowledge check: short answer and multiple choice |
 | [assessment-2-scenarios.md](assessment-2-scenarios.md) | Learners | Applied judgment: realistic operating scenarios |
 | [failure-labs.md](failure-labs.md) | Learners and facilitators | Practice predicting, diagnosing, and learning from four safe failure scenarios |

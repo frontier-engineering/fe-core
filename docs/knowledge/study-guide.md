@@ -1,15 +1,51 @@
 ---
 title: Wharf study guide
-description: Seven modules for learning the engineering judgment recorded in Wharf's evidence
+description: Eight modules for learning Harbor trial mechanics and the engineering judgment recorded in Wharf's evidence
 ---
 
 ## How to use this guide
 
 Work through the modules in order. For each, read the listed evidence, then
 answer the self-check questions in your own words before checking the source.
-Read [lessons.md](lessons.md) first for an overview.
+Read [the Harbor trial primer](harbor-trial.md) and [lessons.md](lessons.md)
+first for an overview.
 
 Estimated time: four to six hours of reading, plus the optional failure labs.
+
+## Module 0: The Harbor trial being scaled
+
+**Goal:** Trace one attempt from task configuration through agent execution
+to a separately verified result, before reasoning about concurrency.
+
+**Read:**
+
+* [How a Harbor trial works in Wharf](harbor-trial.md), including its pinned
+  manifest, image-cache, runner, and smoke-grader evidence
+* Harbor's [task overview](https://docs.harborframework.com/tasks/overview)
+  and [reference solution](https://docs.harborframework.com/tasks/solution);
+  distinguish current upstream features from Wharf's supported subset
+
+**Self-check:**
+
+1. What do `task.toml`, `instruction.md`, and `tests/test.sh` each control?
+   Which image source wins when `docker_image` and an agent Dockerfile exist?
+2. What is reused on a warm run, and which image/container boundaries remain
+   fresh? Why can shared base layers still leave substantial disk work?
+3. Why cache an exact-version CLI payload separately from task environments?
+   What evidence would support a claim about seconds saved?
+4. Where is the agent patch retained, how does it reach grading, and why is
+   that safer for reproducibility than sharing the agent workspace?
+5. Which agent and verifier preparations acquire `P`, and when is it
+   released? Does the Docker grader's patch replay hold that permit?
+6. What do `nop` and `oracle` check? Why is Wharf's normal no-patch result
+   not proof that it implements the `nop` baseline?
+
+**Practice:** As a tabletop exercise, annotate the primer's two manifests:
+one image-backed, one Dockerfile-backed. Draw the lifecycle with cache
+identities, the retained patch, and preparation-gate boundaries. Then use
+the smoke verifier Dockerfile, script, and grader to distinguish build-time
+test bundling from runtime model/test patch application. No Docker run or
+cache deletion is needed.
 
 ## Module 1: The workflow and its evidence
 
@@ -46,6 +82,8 @@ Estimated time: four to six hours of reading, plus the optional failure labs.
 1. Which host resources does `N` mostly consume, and which does `P` protect?
 2. Why is the cold run the right case for sizing `P`?
 3. What does the gate telemetry show about the cost of a conservative `P`?
+4. Why do verifier preparation and agent preparation compete for the same
+   capacity even when all agents use cached CLI payloads?
 
 ## Module 3: Failure, retry, and recovery
 
