@@ -11,6 +11,10 @@ report, or a statement that the proposed capabilities already exist.
 Repeated chat responses, conversational praise, email headers, and personal
 asides have been removed. Unverified claims are identified below.
 
+## Request from Microsoft VP
+
+- I just back to AMS now and have some headspace to really tuck into talking with you and your son's startup (Frontier-Engineering.ai) on helping us scale HVE. we finally have a mandate to move forward with this.. "this" being the opportunity to perhaps white label a small company to help us scale HVE upskilling to the broader set of MS customers. The recent Anthropic announce about thier Academy and upskilling 10k devs across customers and partners has RodK/LT twitching so the timing is PERFECT to propose a partnership that helps us scale. LMK if you feel we are still well positioned for this and then will get a small v-team kicked off to explore how we might best do this
+
 ## Summary
 
 * **Frontier Engineer as internal FDE:** Explore a role that pairs software
