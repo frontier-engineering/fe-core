@@ -358,3 +358,28 @@ approvals are known.
 
 Repository links above are orientation references, not commit-pinned evidence
 for the chat's benchmark or comparative claims.
+
+### Job description references
+
+User-supplied job description (JD) references for comparison with the proposed
+Frontier Engineer / internal FDE role. Titles are supplied by the user or
+inferred from the linked URL. Local reference summaries were prepared on
+October 30, 2026, rather than reproducing the full postings. The Fluidstack
+posting bodies were retrieved directly; the OpenAI summary is search-based
+because direct retrieval returned HTTP 403. Postings may change or close.
+
+#### Fluidstack: Decision Engineer
+
+* [Decision Engineer Infrastructure](https://fluidstack.io/jobs/4d9e6d9f-d1f5-4e56-b743-a0f082fb7217)
+  ([local summary](docs/jd-fluidstack-infrastructure.md))
+* [Decision Engineer Compute Production](https://fluidstack.io/jobs/1fa894eb-09ce-478f-b440-aae45aa4953e)
+  ([local summary](docs/jd-fluidstack-compute-production.md))
+* [Decision Engineer Business Operations](https://fluidstack.io/jobs/e2a1dad4-f2dd-4cd6-b19e-c50bcb51fe0d)
+  ([local summary](docs/jd-fluidstack-business-operations.md))
+* [Decision Engineer Manufacturing & Supply Chain](https://fluidstack.io/jobs/717a792e-bd03-40c3-acf6-48e360a9034b)
+  ([local summary](docs/jd-fluidstack-manufacturing-supply-chain.md))
+
+#### OpenAI: GTM Growth Engineering
+
+* [Software Engineer, GTM Growth Engineering (San Francisco)](https://openai.com/careers/software-engineer-gtm-growth-engineering-san-francisco/)
+  ([local summary](docs/jd-openai-gtm-growth-engineering.md))
