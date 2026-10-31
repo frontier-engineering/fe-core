@@ -5,6 +5,8 @@
 **Audience:** Enterprise architecture, platform engineering, digital
 transformation leadership, and training partners.
 
+> Frontier Engineering helps enterprises build internal engineering capability that turns domain expertise into reliable software—with AI. We demonstrate it alongside their teams, then enable their engineers and partners to repeat it.
+
 These notes collect positioning ideas, possible architecture patterns, and
 training proposals. They are not an approved charter, a verified research
 report, or a statement that the proposed capabilities already exist.
@@ -36,6 +38,7 @@ asides have been removed. Unverified claims are identified below.
 * **Next step:** Choose a bounded Project Aspen pilot at Energy Co, define
   its controls and success criteria, and decide which training and
   positioning proposals to pursue.
+*  Because some skills are open-source, do not build the business around restricting rights their licenses already grant. Your paid value is maintained curriculum, adaptation, delivery support, assessment, quality assurance, and authorized certification branding.
 
 ## 1. Naming and positioning
 
