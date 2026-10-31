@@ -5,13 +5,50 @@
 **Audience:** Enterprise architecture, platform engineering, digital
 transformation leadership, and training partners.
 
+> Frontier Engineering is an applied AI research and engineering firm. We develop and test methods for turning AI capabilities into reliable enterprise software, then translate those findings into practical engineering methods and partner enablement. For Microsoft, we can develop, maintain, and deliver the train-the-trainer system that helps GSIs apply HVE inside client organizations.
+
 > Frontier Engineering helps enterprises build internal engineering capability that turns domain expertise into reliable software—with AI. We demonstrate it alongside their teams, then enable their engineers and partners to repeat it.
+
+> FE develops, maintains, and transfers practical AI engineering capability into large delivery organizations.
+
+> Frontier Engineering is an applied AI research and engineering firm. We develop and test methods for building software with AI, engineer solutions to real enterprise problems, and equip teams to apply what works.
+
+> We originated the sessions methodology through context-first and investigated its application through real software projects. We evaluate AI development tools and workflows, build systems to address the gaps we find, and translate the results into practical methods and training.
+
+- Anthropic is addressing the enterprise implementation talent bottleneck. FE can help Microsoft build that capability through GSIs, using a maintained, evidence-backed methodology and practical train-the-trainer delivery.
+
+- You are not a training company trying to sound like a research firm. You are proposing a research-and-engineering firm whose initial commercial channel is training and enablement. That is a meaningful distinction—as long as ongoing investigation and hands-on engineering remain part of the work.
 
 These notes collect positioning ideas, possible architecture patterns, and
 training proposals. They are not an approved charter, a verified research
 report, or a statement that the proposed capabilities already exist.
 Repeated chat responses, conversational praise, email headers, and personal
 asides have been removed. Unverified claims are identified below.
+
+## Working theme: First, do no harm
+
+**Status:** Working principle for the FE methodology.
+
+> Before claiming improvement, establish that the intervention preserves
+> what already works. Added scaffolding must earn its place through evidence,
+> not merely preference or perceived sophistication.
+
+Apply this to the complete **model + harness + skills** combination:
+
+* Establish a comparable baseline before adding or changing skills,
+  instructions, orchestration, or tooling.
+* Check requested behavior and pre-existing tests separately. Passing new
+  tests does not excuse regressions in existing behavior.
+* Measure effects on correctness, reliability, execution time, cost, and
+  operational burden; do not assume that more structure improves outcomes.
+* State uncertainty and any intentional tradeoffs explicitly. An aggregate
+  improvement can hide regressions on particular tasks.
+* Retain evidence, version changes deliberately, and preserve a rollback
+  path. Remove or revise scaffolding that no longer earns its cost.
+
+This is an evaluation discipline, not a guarantee of zero harm or a ban on
+change. FE should hold its own methodology to the same standard it applies
+to other approaches.
 
 ## Request from Microsoft VP
 
@@ -390,3 +427,132 @@ because direct retrieval returned HTTP 403. Postings may change or close.
 
 * [Software Engineer, GTM Growth Engineering (San Francisco)](https://openai.com/careers/software-engineer-gtm-growth-engineering-san-francisco/)
   ([local summary](docs/jd-openai-gtm-growth-engineering.md))
+
+## Gartner Best Practices
+
+Searched the web for `What publicly documented Gartner research practices can a small applied AI re...`
+Completed with input: {
+  "query": "What publicly documented Gartner research practices can a small applied AI research and engineering consultancy adopt? Find official Gartner sources for research methodologies, evidence and peer review, independence and objectivity, client inquiry and research feedback, and fusion teams/business technologists relevant to embedded internal forward-deployed engineering. Distinguish published Gartner practices from recommendations inferred for a small firm; use accessible official URLs, avoid paywalled report reproduction."
+}
+
+Ran terminal command: python3 -c 'import json; p="/tmp/1793423539407-copilot-tool-output-5f29cad8d3974b7f8f6e99beb4bd2b09.txt"; d=json.load(open(p)); print(d["text"]["value"][:11000])'
+Tool execution failed with exit code 1
+
+Ran terminal command: python3 -c 'import json; p="/tmp/1793423539407-copilot-tool-output-5f29cad8d3974b7f8f6e99beb4bd2b09.txt"; d,_=json.JSONDecoder().raw_decode(open(p).read()); print(d["text"]["value"][:9000])'
+
+Searched the web for `Find specific official Gartner public articles on fusion teams and business t...`
+Completed with input: {
+  "query": "Find specific official Gartner public articles on fusion teams and business technologists, and their governance relationship to central IT. Also find Gartner's official independence and objectivity policy URL. Provide exact URLs and distinguish fusion teams from forward-deployed engineering; do not claim Gartner defines internal FDE."
+}
+
+"Fetch Web Content" failed
+Completed with input: {
+  "url": "https://www.gartner.com/en/research/methodologies/methodologies",
+  "max_length": 7000
+}
+Tool execution failed: Error: Failed to fetch https://www.gartner.com/en/research/methodologies/methodologies - status code 403
+
+Ran terminal command: python3 -c 'import json; p="/tmp/1793423576689-copilot-tool-output-e29176d0ccb74bd9aade62e900267fea.txt"; d,_=json.JSONDecoder().raw_decode(open(p).read()); print(d["text"]["value"][:8500])'
+
+Ran terminal command: python3 -c 'import json; p="/tmp/1793423576689-copilot-tool-output-e29176d0ccb74bd9aade62e900267fea.txt"; d,_=json.JSONDecoder().raw_decode(open(p).read()); a=d["text"].get("annotations",[]); print("\n".join(x["url_citation"]["url"] for x in a if "url_citation" in x))'
+
+**Yes—internal FDE is a legitimate applied research area even though you did not invent it.** The contribution can be discovering **when it works, how to organize it, what controls it needs, and how to transfer it into enterprise practice**.
+
+For Energy Co, the research question is not simply “Should they have internal FDEs?” It is:
+
+> **How should domain experts, embedded engineers, and central platform teams work together across specification, implementation, and operations—and what evidence shows that the arrangement improves outcomes?**
+
+Gartner offers two useful things: **existing organizational research to build on** and **a model for turning accumulated practitioner knowledge into reusable advice**.
+
+## 1. Build on Gartner’s concepts—not just its presentation style
+
+Gartner’s research on [fusion teams](https://www.gartner.com/en/doc/fusion-teams-democratized-and-distributed-technology-delivery-for-digital) is especially relevant: multidisciplinary teams combining business and technology expertise.
+
+That is adjacent to internal FDE, **not synonymous with it**:
+
+- **Fusion team:** How business and technology expertise are organized around an outcome.
+- **Internal FDE:** An engineering role or deployment approach within that organization.
+- **FE’s research:** How AI changes the work, boundaries, verification, and capability requirements.
+
+This gives you an established foundation without claiming to have invented embedded engineering.
+
+For Energy Co, investigate:
+- Who defines the problem and accepts the result?
+- What can the embedded team decide independently?
+- What requires platform, security, or business approval?
+- Who owns the capability after initial delivery?
+- Which local solutions should become shared platform components?
+
+**The unit of research is the operating model, not just the individual engineer.**
+
+## 2. Adopt research discipline at boutique scale
+
+Gartner publishes descriptions of its [research methodologies](https://www.gartner.com/en/research/methodologies/methodologies). You do not need to reproduce its proprietary frameworks or build a large analyst organization.
+
+The following are **my recommendations for FE**, informed by that research-and-advisory model—not a claim that they are Gartner’s exact internal procedures.
+
+| Practice | Lightweight FE implementation |
+|---|---|
+| Explicit questions | Start each investigation with a question and a decision it should inform |
+| Multiple evidence sources | Combine literature, interviews, project artifacts, and controlled evaluations |
+| Traceable claims | Link findings to retained evidence and label observations, interpretations, and hypotheses |
+| Boundary conditions | Explain where a recommendation applies—and where it may fail |
+| Critical review | Have someone challenge conclusions who was not responsible for delivering the project |
+| Living findings | Version recommendations and revisit them when new evidence contradicts them |
+| Practitioner feedback | Use client and facilitator questions to identify the next research priorities |
+| Conflict disclosure | Identify sponsorship and commercial relationships relevant to findings |
+
+For a small firm, one well-supported finding is more valuable than an impressive-looking framework with weak evidence.
+
+## 3. Turn engagements into research without turning clients into experiments
+
+Energy Co could be a **permissioned case study of an operating model**.
+
+Before the engagement, define:
+- The business outcome.
+- The proposed team arrangement.
+- Baseline conditions.
+- Evidence you can collect.
+- Confidentiality and publication permissions.
+- Conditions that would cause you to revise the approach.
+
+Then track outcomes across all three SDLC stages:
+
+| Stage | Example evidence |
+|---|---|
+| Getting to the spec | Unresolved assumptions, requirement changes, approval clarity, domain-expert acceptance |
+| Implementing the spec | Verified acceptance criteria, rework, defects, integration problems, review effort |
+| Operating the spec | Support burden, incidents, ownership clarity, recovery, ability to make subsequent changes |
+
+Do not attribute every improvement to internal FDE. Tool changes, scope, unusually experienced people, and access to stakeholders can all affect results.
+
+**One successful engagement establishes a case—not a universal best practice.**
+
+## 4. Borrow Gartner’s knowledge-to-advice loop
+
+The useful business pattern is:
+
+> **Investigate → synthesize → advise → apply → learn → revise.**
+
+For FE, each substantive finding could produce three outputs:
+
+1. **Research finding:** What happened, supporting evidence, limitations.
+2. **Decision guide:** What an enterprise or GSI should consider doing.
+3. **Teaching asset:** An exercise, skill, or facilitator lesson that develops the required judgment.
+
+Sessions already fits that pattern. Internal FDE could become another research stream. Microsoft/GSI TTTs become a way to transfer—and test the teachability of—the findings.
+
+## 5. Protect the credibility that makes the advice valuable
+
+Because FE also sells delivery and training, you cannot simply claim analyst-style independence.
+
+Instead:
+- Be transparent about your role and incentives.
+- Publish failures and counterexamples where permitted.
+- Separate product evaluations from sales promises.
+- Do not let sponsorship determine findings.
+- Use appropriately licensed Gartner research as background; do not reproduce proprietary reports, graphics, or branded methodologies.
+
+Gartner’s direct pages blocked retrieval during this lookup, so the links above are orientation sources surfaced through search, not a comprehensive review of its research.
+
+**The opportunity is not to become a miniature Gartner. It is to combine research-backed advice with hands-on engineering and capability transfer.** FE can investigate an operating model, prove parts of it in real work, and teach others to apply it—with clearer evidence boundaries than conventional consulting often provides.
